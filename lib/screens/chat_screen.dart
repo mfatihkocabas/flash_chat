@@ -1,13 +1,61 @@
+import 'dart:math';
+import 'registration_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat_me/constants.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 class ChatScreen extends StatefulWidget {
   static const String id='chat_screen';
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
 
+
 class _ChatScreenState extends State<ChatScreen> {
+  final _auth = FirebaseAuth.instance;
+  FirebaseUser loggedInuser;
+  @override
+  void initState() {
+    super.initState();
+
+  }
+  void getCurrentUser()async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInuser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+
+
+
+
+
+/*  void initState(){
+    super.initState();
+    getCurrentUser();
+
+  }
+*/
+/*
+  void getCurrentUser()async{
+    try{
+      final user =await _auth.currentUser;
+      if(user!=null){
+        loggedInuser=user;
+      }
+
+    }catch(e){
+      print(e);
+    }
+*/
+
+ // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

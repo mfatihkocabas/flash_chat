@@ -33,6 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
+              keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 hintText: 'Enter your email',
                 contentPadding:
@@ -59,7 +60,9 @@ class _LoginScreenState extends State<LoginScreen> {
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Login'),
+              textAlign: TextAlign.center,
+              obscureText: true,
+              decoration: kTextFieldDecoration.copyWith(hintText: 'Password'),
             ),
             SizedBox(
               height: 24.0,
